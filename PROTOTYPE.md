@@ -23,3 +23,12 @@ Click the orbital line, **not the ship**, to place a node. Planning **does not p
 
 ## 0.7 — Encounter playground
 The moons now have visible influence rings and localized gravitational pull. Place one node on your spacecraft orbit, choose prograde/retrograde, and view the proposed post-burn path and a predicted closest approach (body, separation, time). Committing locks the burn; an uncommitted node expires when passed. The active influence region is shown in the HUD. SOI uses a smooth, deliberately simplified gravity approximation; this is not a validated full celestial mechanics model. Browser and numerical verification remain outstanding.
+
+## 0.7.1 — Patched-conic correction (branch `fix/0.7-patched-conic-physics`, pending owner review)
+- **Gravity:** inside a moon's ring only that moon pulls, measured relative to the moon; outside, only the planet. Rings are physically sized SOIs (inner ≈ 40, outer ≈ 61).
+- **Capture is real and permanent under this model:** an orbit that stays inside the ring stays forever. You cannot be captured just by coasting in; you must **burn inside the ring**. The forecast says `CAPTURE · <MOON> ORBIT · PERIAPSIS n` when your planned burn achieves it, `LEAVES <MOON> T+n` when it doesn't, and `IMPACT` when it hits.
+- **Burn direction** is relative to whichever body you are orbiting at the node ("RELATIVE TO INNER MOON" in the node panel).
+- **Moons are solid:** hitting one ends the run.
+- While inside a moon's ring, paths are drawn around the moon so a moon orbit looks like an orbit.
+- Committed node: warm colour, double ring, `LOCKED`.
+- Playtest questions: Is "burn inside the ring to capture" discoverable? Is the capture window (≈ −10 to −11 for a 20-unit pass) too narrow? Is the burn-frame switch at the ring edge understandable?
