@@ -19,3 +19,6 @@ GitHub commits succeeded. **No live browser or automated physics verification pe
 
 ## Next
 Owner playtests 0.4, reports first-transfer experience. Fix blockers and refine feel before expanding mechanics. Do not treat exploration loop as validated yet.
+
+## Prototype 0.5A — Manoeuvre Planner (2026-11-23)
+**Implemented, not browser-verified:** select moon, live future closest-approach preview while dragging, and Advance to approach button. Advance is only offered if a near pass is predicted within a 1200-s simulation horizon; it fast-forwards the same physics and stops 12 simulation seconds before predicted closest approach. It does not change trajectory or guarantee capture. No future-burn-point planning (0.5B), moon gravity, or SOI switching yet. Playtest whether the encounter prediction, stopping distance, performance and advance availability feel useful. No live browser test performed.
