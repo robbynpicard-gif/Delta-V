@@ -25,3 +25,6 @@ Commit confirmed, docs consistent, test limitations disclosed, open issues ident
 
 ## Latest owner authorization
 Owner explicitly requested a **small 0.7 prototype with a small system of visitable bodies, each with SOI**, following the approved balanced encounter forecast. Treat localized moon gravity as an experiment, not verified physics or a permanent production decision.
+
+## Current design gate — owner-approved revision (2026-11-23)
+Read the latest revision in DECISIONS.md (DV-031 onward), GAME_DESIGN.md, ROADMAP.md and STATUS.md. Gameplay-first **deterministic and forecastable** orbital rules supersede realism as a hard constraint. Keep the one-node prograde/retrograde, commit-or-pass, finite-delta-v loop. Owner reported anomalous motion after an attempted moon capture; do not assume the cause or claim capture verified. Claude physics refinement/testing is the immediate next task; no broader feature implementation authorized. Historical contradictory instructions above are superseded where the latest decisions explicitly say so.
