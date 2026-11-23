@@ -1,35 +1,29 @@
-# DELTA-V — Approved concept: A Universe Discovered One Orbit at a Time
-**Status:** Approved direction (2026-11-23). Prototype implementations are experiments, not validated gameplay.
+# DELTA-V — Game Design Baseline 0.6
+**Status:** Approved experimental direction, 2026-11-23. Game feel and implementation not yet verified.
 
-## Player fantasy
-Be a clever interstellar traveller exploring an unfamiliar, vast universe. Go farther with less. The player should feel responsible for discoveries achieved by understanding gravity and timing, not following prescribed tutorials.
+## Vision
+A peaceful, minimalist orbital exploration puzzle roguelite. The player is a clever traveller who learns to exploit gravity and timing to discover a vast, unfamiliar universe. **Go farther with less.** Orbital understanding is the player's growing skill; exploration is the reward.
 
 ## Core loop
-**Observe → Plan → Commit → Discover → Repeat.** Begin in a coherent, constrained-random orbital neighbourhood; identify nearby orbital opportunities; hold spacecraft to pause, pull a tactile slingshot to preview a prograde/retrograde manoeuvre, release to spend delta-v; coast with player-controlled time warp; reach a new celestial neighbourhood and discover new opportunities. Reward curiosity, economy, and improved understanding. Avoid arcade reflex pressure.
+**Observe → Place → Experiment → Commit → Travel → Discover.**
+- The player sees their own current orbital path and nearby celestial bodies, but receives no automatically computed intercept solution.
+- Place **one** future manoeuvre node on the upcoming orbital path. Node represents an execution **time**, not a permanent point in space.
+- While planning, pause time; adjust node timing along the upcoming path and apply signed prograde/retrograde delta-v. Show a single projected post-burn spacecraft trajectory and restrained travel-time ticks.
+- Commit to coast to the node and automatically execute the planned burn, spending delta-v **at execution**, not planning. Allow uncommitted nodes to expire when passed; do not silently renew on the next revolution.
+- A player can cancel an uncommitted node. No reflex countdown or quick-time input.
+- After executing, the spacecraft follows the same gravitational physics as its preview. Discover moons by entering their vicinity. Then repeat.
 
-## Pillars
-1. Simple, expressive input; trustworthy orbital prediction; readable cause and effect.
-2. Exploration is the reward; the environment offers opportunities, not instructions.
-3. Delta-v is the **only base consumable resource** in the core loop; don't add integrity/materials/fuel currencies unless a later prototype proves their necessity.
-4. Procedural generation must yield physically coherent **interesting orbital relationships**, not merely random bodies; ensure viable early options.
-5. Limited local knowledge: nearby bodies charted; distant bodies may be visible but not yet charted; avoid arbitrary fog or scanning chores.
-6. Preserve player agency. No autopilot, exact optimal-burn recipes, or forced encounter slowdown by default.
-7. One compact visual language: current path, planned path, moving-target encounter at matching future time, cost/affordability, and destination. Show consequences rather than an encounter-quality score.
+## Deliberate knowledge boundary
+Show: own orbit, spacecraft, selected burn node, post-burn spacecraft path, a few own-path time ticks, current moon positions, delta-v and discovery. **Do not show** moon future paths, suggested burn, best intercept, changing future target ghost, automated closest approach. If players cannot learn phase timing, test a manual synchronized time scrub as a later explicit addition, not a solver.
 
-## Exploration hierarchy
-- **Immediate prototype:** spacecraft, one planetary primary, two moving moons, orbital transfer and broad encounter regions. No gravity from moons yet.
-- **Next physics milestone if fun:** patched-conic-style SOI/reference-frame transitions, preserving inertial state and predictable preview; meaningful flybys.
-- **Long-term world vision:** local planetary neighbourhoods → star systems → galactic context. Context-sensitive units km/AU/parsecs are labels, not mechanics. Do **not** promise a continuous fully simulated galaxy or simply rescale identical gameplay to parsecs. Interstellar travel model unresolved.
-- Gravity assists are a potential signature mechanic, but must emerge from moving-body physics and be tested after basic transfers prove satisfying.
+## One-orbit rule
+A node must be committed before the craft reaches it. Planning pauses time. If passed uncommitted while coasting, it expires. A committed node executes automatically on arrival. Bound orbits use an upcoming revolution; escape trajectories allow a node within a bounded visible future horizon. Do not require a button press at execution.
 
-## Primary and optional objectives
-Primary: reach the vicinity of another celestial body; don't require docking or matching velocities for discovery. Optional later: stable capture, low-relative-speed rendezvous/debris retrieval, efficient routes, gravity assists. Discovery should reveal onward possibilities, not just increment a counter.
+## Physical model and limits
+Prototype: 2D inverse-square planet gravity, instantaneous prograde/retrograde burn, moving moons in circular planet orbits, broad vicinity discoveries, finite delta-v. No moon gravity/SOI, gravitational assists, capture, landing, full procedural universe, galaxy simulation, upgrades or economy beyond delta-v. All units are game units; physical consistency within this model matters more than false precision.
 
-## Delta-v and planning
-Keep burns finite and consequential. Current experiment allows hypothetical unaffordable burns with an explicit warning and **no surprise partial execution**; compare this against affordability-constrained primary input. No separate single-burn strength limit unless needed for game feel. Delta-v replenishment is **unresolved**; start with a fixed budget and test stranding/soft-lock risks before designing recovery.
+## Experience and scope
+Simple controls, meditative coasting, consequential choices, forgiving retry. Avoid a miniature KSP, automated optimal targeting, arbitrary physics, forced reflex tests, or endless passive waiting. The intended long-term hierarchy is planetary neighbourhoods → stellar systems → galactic context, with interstellar travel mechanics unresolved.
 
-## What NOT to build yet
-Full galaxies, launch simulation, procedural campaign, upgrades, resource salvage, docking, automatic rendezvous, random encounter menus, extensive HUD, forced tutorial lessons. Avoid making a miniature KSP.
-
-## First Neighbourhood test
-Can a player (a) understand how the slingshot changes an orbit, (b) reach a moving moon by planning/coasting, (c) feel curiosity about the next body, and (d) voluntarily retry with less delta-v? Observe confusion, idle waiting, repeated failed encounters, and desire to explore. Do not call this loop validated until browser playtesting.
+## Validation
+Can a new player place a node, understand when it fires, predict the shape of the resulting orbit, commit, and feel agency when discovering a moon? Does the lack of future moon markers create satisfying discovery or opaque guesswork? Is the one-orbit deadline motivating or annoying? Browser playtest before adding SOIs or other systems.
