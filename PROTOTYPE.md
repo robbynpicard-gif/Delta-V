@@ -26,7 +26,7 @@ The moons now have visible influence rings and localized gravitational pull. Pla
 
 ## 0.7.1 — Patched-conic correction (branch `fix/0.7-patched-conic-physics`, pending owner review)
 - **Gravity:** inside a moon's ring only that moon pulls, measured relative to the moon; outside, only the planet. Rings are physically sized SOIs (inner ≈ 40, outer ≈ 61).
-- **Capture is real and permanent under this model:** an orbit that stays inside the ring stays forever. You cannot be captured just by coasting in; you must **burn inside the ring**. The forecast says `CAPTURE · <MOON> ORBIT · PERIAPSIS n` when your planned burn achieves it, `LEAVES <MOON> T+n` when it doesn't, and `IMPACT` when it hits.
+- **Capture:** coasting in never captures you; you must **burn inside the ring**. The forecast says `CAPTURE · <MOON> ORBIT · PERIAPSIS n · HOLDS THROUGH T+h` only when the propagated forecast stays bound for its whole horizon; otherwise `LEAVES <MOON> T+n` or `IMPACT`. Dominance is sticky: an orbit around one moon is not disturbed when the other moon's ring passes over it.
 - **Burn direction** is relative to whichever body you are orbiting at the node ("RELATIVE TO INNER MOON" in the node panel).
 - **Moons are solid:** hitting one ends the run.
 - While inside a moon's ring, paths are drawn around the moon so a moon orbit looks like an orbit.

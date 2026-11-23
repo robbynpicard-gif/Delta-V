@@ -28,19 +28,35 @@ Two orbiting moons now exert localized gravity inside smooth influence zones (ap
 
 ## Owner-approved design direction, pending Claude physics refinement (2026-11-23)
 Owner positively playtested node preview and encounter highlights, but reported anomalous motion after a moon approach and attempted capture burn. Root cause **not yet reproduced or confirmed**. Approved direction: deterministic gameplay-tuned orbital mechanics; one-node commit-or-pass loop; distinct flyby/capture/escape consequences; discovery without mandatory capture; small handcrafted opportunity chains. Freeze feature expansion until physics and forecast/execution agreement are verified. This approval changes design priorities **only**, not implementation or verification status. The current 0.7 SOI implementation remains experimental and may be replaced.
-## 0.7 physics audit and patched-conic correction — Claude Code (2026-11-23)
-Branch `fix/0.7-patched-conic-physics` → PR into `prototype/orbital-manoeuvres-v0.1` (not main).
-**Verified by automated headless-Chrome tests of the real page code** (seeded randomness, manually clocked game loop). No human playtest; mobile only emulated.
+## 0.7.1 physics diagnosis — Claude Code (2026-11-23) — candidate on branch, not adopted
+Branch `fix/0.7-patched-conic-physics` → PR #3 into `prototype/orbital-manoeuvres-v0.1`. Per DV-037 this is the **dominant-body SOI candidate**, Experimental, pending owner playtest. Verified by automated headless-Chrome tests of the real page code (seeded randomness, manually clocked loop, real mouse/touch for controls). No human playtest; the phone was only emulated.
 
-**Diagnosed causes of the "strange orbital interaction" (on the 0.7 code before this change):**
-1. **No moon collision.** A softened gravity core let the craft fly through moons. In one reproduced capture attempt it passed within 4 units of the centre of an 11-unit moon more than 400 times while looping chaotically, then escaped.
-2. **Faded SOI gravity made real capture impossible.** The fade weakened gravity inside the SOI, so the inner moon's well was about half the depth of a real one (escape speed at 20 units: 5.2 instead of 10.7). No prograde inner-moon orbit at any radius survived 800 time units, and the 49-unit ring exceeded the moon's real gravitational reach (Hill radius ≈ 38).
-3. **Burns used the planet's frame.** Inside a moon SOI, a "retrograde" capture burn pointed about 42° away from moon-relative retrograde, so a −12 burn cut moon-relative speed by only 6.
-4. **Integration timing error.** Moons moved after both gravity half-steps, so post-flyby positions drifted from a high-accuracy reference by 2–11 units live and 4–35 units in the preview.
-5. **Labels used the planet's frame.** Inside a moon SOI the HUD said ESCAPE or ECCENTRIC.
+**Anomaly reproduced. Causes in the original 0.7 code:**
+1. **Moons weren't solid.** A softened gravity core let the craft pass through moons; one capture attempt looped through the inner moon more than 400 times, then escaped.
+2. **The faded SOI force couldn't hold an orbit.** The inner moon's well was about half the depth of a real one (escape speed 5.2 vs 10.7 at 20 units), no prograde inner-moon orbit survived, and the 49-unit ring was larger than the moon's real gravitational reach (Hill radius ≈ 38).
+3. **Capture burns used the planet's frame,** about 42° off moon-relative retrograde.
+4. **Moons were advanced outside the integrator step,** causing 2–11 units of post-flyby error live and 4–35 in the preview.
+5. **HUD labels used the planet's frame** inside a moon's SOI.
+6. **The two SOIs overlap by about 26 units at conjunction.** Any dominance rule based on position alone abruptly hands an outer-moon orbit wider than ~38 units to the inner moon. Found while testing the candidate and fixed with sticky dominance.
 
-**Implemented:** patched-conic gravity (one dominant body; the SOI is the Laplace radius r·(μ/M)^0.4, giving inner ≈ 40 and outer ≈ 61); moons advanced inside the integrator step; moon impacts end the run; prograde/retrograde measured relative to the dominant body (shown in the node panel); orbit labels relative to the dominant body (`INNER MOON ORBIT`, `FLYBY`, `IMPACT COURSE`); forecast outcomes `CAPTURE · … ORBIT · PERIAPSIS n`, `IMPACT · body · T+n`, `LEAVES … T+n` plus the forecast `HORIZON`; moon-relative drawing while inside a moon SOI; committed nodes drawn warm and `LOCKED`; discovery halo hidden after discovery.
+**Candidate model:** dominant-body gravity with SOI = Laplace radius r·(μ/M)^0.4 (inner ≈ 40, outer ≈ 61). Dominance is **sticky**: the craft stays with its current body until it leaves that body's SOI. Moons are advanced inside the step; moons are solid; prograde/retrograde, orbit labels and forecast are relative to the dominant body. The forecast reports `CAPTURE · <MOON> ORBIT · HOLDS THROUGH T+n` **only if the propagated forecast stays bound inside the SOI for the whole horizon** (DV-033), otherwise `LEAVES` or `IMPACT`, and always shows the horizon.
 
-**Verified after the change:** zero JS errors on desktop and emulated phone. Forecast closest approach matches live within 0.03 units and 0.03 time; live matches a 20× finer reference within 0.6; preview matches live within 1.1 (was 4–35). Moon orbits at every tested radius and direction hold for 800 time units. End-to-end through the real UI: flyby → in-SOI node → the slider forecast reads LEAVES up to −9, CAPTURE at −10 and −11, IMPACT from −12 → the committed −10 burn held a 19.5–23.6 moon orbit for 400 time units; a forecast impact did impact. Node placement, drag, one-pass expiry, committed execution, affordability lock and discovery still work. Draw cost with an active node is 2.6 ms median.
+**Verified:**
+- Zero JS errors on desktop and emulated phone.
+- Forecast closest approach equals live within 0.03 units and 0.03 time.
+- Live equals a 20× finer reference within 0.6; preview equals live within 1.1.
+- Every tested moon orbit (both moons, both directions, radii 16–56, near and far side) holds 1,500 time units within ±2 units, across several conjunctions.
+- Real-UI capture end to end: the slider forecast reads LEAVES up to −9, CAPTURE at −10 and −11, IMPACT from −12. The committed −10 burn held for 400t, and a forecast impact impacted.
+- Node placement and drag, expiry, committed execution, affordability, discovery, and real-click Pause/Reset all work.
 
-**Still open:** forecasts are genuinely sensitive for multi-revolution or near-impact encounters (the marker can jump with a 0.2 slider change; live play matches it). The mobile node panel covers the play area. There is no camera or zoom, so moon orbits are small on screen. Moon SOIs can briefly overlap at conjunction (the inner moon takes priority).
+**DV-037 comparison (exact capture window = range of retrograde Δv at periapsis that captures without impact):**
+| Variant | Inner SOI | Window at 20 units, inner / outer | SOI overlap |
+|---|---|---|---|
+| A physical (current) | 40 | 2.4 / 2.7 | 26 |
+| B SOI ×1.3 | 52 | 2.7 / 3.1 | 57 |
+| C moon mass ×1.5 | 47 | 3.2 / 3.6 | 44 |
+| D both | 62 | 3.6 / 4.0 | 80 |
+
+All variants are equally deterministic and forecastable; tuning only widens the window. A non-physical "auto-capture below a threshold" model was not built, because it would make the forecast and execution rules diverge unless shown explicitly (DV-031).
+
+**Open:** genuine sensitivity of multi-revolution encounters (the marker can jump with a 0.2 slider change; live play matches); the mobile node panel covers the play area; no camera or zoom; the burn slider step (0.2) is coarse relative to a ~2.4 capture window.
