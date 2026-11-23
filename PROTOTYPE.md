@@ -29,3 +29,13 @@ No launch, upgrades, SOI transitions, interplanetary travel, procedural systems 
 - No camera zoom, orbital insertion from elsewhere, SOI or gravity assists yet.
 - Sound is a small experimental palette, not a finished generative soundtrack.
 - Pointer input must begin near the spacecraft; on small screens the craft may be difficult to grab.
+
+## Prototype 0.2 experiment — 2026-11-23
+**Implemented on the prototype branch; not yet browser-verified.** Owner playtested 0.1 and requested faster movement, more tactile burns and small collectible orbital debris.
+
+- Simulation coasting speed raised from 2.2x to 3.8x, without changing the gravity model or fixed integrator step.
+- Slingshot input: hold craft to pause, **pull backward against travel for prograde** (positive Δv), push forward for retrograde. Burn magnitude scales with tangent-aligned pull; off-axis movement does not contribute.
+- While winding, a tether follows the pointer, a thrust vector shows the eventual burn, and the existing predicted trajectory updates.
+- Six pieces of debris follow independent circular gravitational orbits around the planet. Contact within 11 world units collects one, plays a restrained tone (if enabled), and adds a small particle flourish and counter.
+- No resources, upgrades or meta progression. Reset restores the six pieces.
+- **Needs hands-on testing:** verify burn direction, trajectory preview agreement, debris interception, feel of speed and pull sensitivity, mobile grabbing and high-frame-rate stability.
