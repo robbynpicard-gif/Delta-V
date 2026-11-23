@@ -13,3 +13,6 @@ Observe your orbit → place one future manoeuvre node → shape a prograde/retr
 
 ## Latest experiment — 0.7
 The prototype branch now contains a small central planet and two visitable moons with approximate spheres of influence and a synchronized closest-approach forecast. This is experimental and not independently browser-verified. Earlier 0.6 instructions are historical; see the latest section of PROTOTYPE.md and STATUS.md.
+
+## Current approved gameplay direction (2026-11-23)
+Gameplay-first, deterministic orbital exploration: observe → plan → commit or pass → travel → encounter → reassess. The existing 0.7 SOI physics is experimental after a reported capture anomaly. The immediate priority is Claude-led physics/forecast refinement, not feature expansion. See latest sections of DECISIONS.md, GAME_DESIGN.md, ROADMAP.md and STATUS.md for current decisions; earlier summaries are historical when conflicting.

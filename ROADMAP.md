@@ -11,3 +11,14 @@
 
 ## 0.7 active experiment
 Small central-planet / two-moon playground with approximate localized moon gravity, SOI visualization and time-synchronized balanced encounter forecast is committed to prototype branch. Next gate: browser playtest, numerical prediction/execution comparison and performance. Then refine tactile placement and distinct commit/execution feedback; only then evaluate genuine capture/assist readability. No larger system or progression until validated.
+
+## Revised owner-approved roadmap direction (2026-11-23)
+**Immediate gate — 0.7.1 physics reliability:** Claude should reproduce the reported anomalous moon-capture orbit, compare simplified dominant-body versus gameplay-tuned deterministic gravity, verify SOI transitions, capture classification and forecast/live agreement. Preserve validated manoeuvre-node, encounter-highlighting and one-pass pressure. No additional gameplay features while reliability is unresolved.
+
+**0.8 proposed — meaningful encounters:** Clear and accurate flyby/capture/escape consequences and readable forecast horizons, no additional action buttons or currencies.
+
+**0.9 proposed — first designed journey:** Handcrafted compact neighbourhood with navigationally distinct bodies and opportunity chains, without mandatory precision assists.
+
+**1.0 prototype milestone proposed — complete small loop:** Depart, encounter, optionally capture or fly by, continue, and reach a satisfying run conclusion. These labels are provisional and not authorization to implement new phases.
+
+**Design filter:** Does a change improve observe → plan → commit or pass → travel → encounter → reassess? If not, defer it. Gameplay-first deterministic orbital physics supersedes realism as a constraint. Old roadmap items remain historical context only.
