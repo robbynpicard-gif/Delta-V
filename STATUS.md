@@ -19,3 +19,6 @@ GitHub commits confirmed. **No browser-based end-to-end or physics tests have be
 
 ## Next
 Owner playtests 0.6 and reports what is intuitive or frustrating. Address observed issues before adding physics complexity.
+
+## 0.6.1 — One-pass timing correction (2026-11-23)
+**Implemented, not browser verified:** node placement no longer auto-pauses, commit no longer auto-accelerates, and a 0.25×–8× speed slider controls time. The ship itself is not clickable for manoeuvres. Drag node only for timing; burn is set with the signed slider. A missed uncommitted node expires; a committed node fires on its first passage. The only future ghost is the player's proposed post-burn trajectory, not a moon target. Reported old ship-slingshot behaviour is absent from current branch source and may reflect stale Pages deployment or cached browser content; live version has not been checked.
