@@ -22,3 +22,6 @@ Owner explicitly authorized replacing the targeting system and establishing the 
 
 ## Done
 Commit confirmed, docs consistent, test limitations disclosed, open issues identified.
+
+## Latest owner authorization
+Owner explicitly requested a **small 0.7 prototype with a small system of visitable bodies, each with SOI**, following the approved balanced encounter forecast. Treat localized moon gravity as an experiment, not verified physics or a permanent production decision.
