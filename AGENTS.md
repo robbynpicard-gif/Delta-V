@@ -1,26 +1,33 @@
 # Shared assistant protocol — DELTA-V
+Applies to Claude Code, ChatGPT and other contributors.
 
-Applies to Claude Code, ChatGPT, and any other contributor.
-
-## Before working
-1. Read README.md, AGENTS.md, GAME_DESIGN.md, CREATIVE_DIRECTION.md, DECISIONS.md, ROADMAP.md and STATUS.md.
-2. Inspect the current repository state and branch; never assume a feature is implemented from a design document.
-3. Separate **Approved**, **Proposed**, **Experimental**, **Implemented**, **Verified**, and **Superseded** statements. Approval does not mean implementation.
-4. Identify the smallest task that fulfills the owner's request. Ask before making material design changes.
-5. Prefer simple, intuitive, tactile play over simulation depth, content volume, or additional systems.
+## Before work
+1. Read README.md, AGENTS.md, GAME_DESIGN.md, CREATIVE_DIRECTION.md, DECISIONS.md, ROADMAP.md, STATUS.md and PROTOTYPE.md.
+2. Inspect the actual branch and implementation; do not infer code state from design prose.
+3. Use statuses **Approved / Proposed / Experimental / Implemented / Verified / Superseded** accurately.
+4. Keep the scope minimal; obtain owner approval before materially expanding the design.
+5. Prioritize clear orbital cause/effect, simple tactile decisions, and discovery over feature count or simulation complexity.
 
 ## Collaboration
-- GitHub is the canonical shared context; private conversations are not synchronized automatically.
-- Record approved decisions in DECISIONS.md and update the relevant design document in the same change.
-- Keep STATUS.md factual: distinguish planned, implemented, and tested.
-- Prefer feature branches and pull requests for code or substantial design revisions. Never overwrite concurrent work blindly.
-- Read latest files before editing; check diff and verify changes before claiming success.
-- Include in handoffs: what changed, why, verification performed, open questions, and next authorized task.
-- Never add dependencies, assets, monetization, telemetry, or major systems without authorization.
-- Do not copy copyrighted music or art from reference games; create original assets and compositions.
+- GitHub is canonical; chats are not automatically synchronized.
+- Record approved decisions in DECISIONS.md and keep design/status documents aligned.
+- Work on the prototype branch / PR; do not silently merge main.
+- Fetch current file SHA before updates; avoid overwriting concurrent work.
+- Verify code when possible; never claim a browser playtest or deployment check not performed.
+- No new dependencies, monetization, telemetry, major systems or third-party assets without approval.
+- Original art and audio only.
 
-## Current development gate
-**PREPRODUCTION ONLY.** Documentation and creative exploration are permitted. Do not write gameplay code, commission or generate final assets, create a playable prototype, or deploy a build until the owner explicitly authorizes implementation.
+## Current authorization
+Owner explicitly authorized replacing the targeting system and establishing the **0.6 One Orbit, One Decision** prototype baseline. Subsequent expansion beyond this focused experiment requires further approval. Earlier preproduction-only restriction is superseded.
 
-## Definition of done
-A change is done when its scope is documented, the repository update is confirmed, relevant docs/status are consistent, and any tests are accurately reported. Do not claim unperformed verification.
+## Done
+Commit confirmed, docs consistent, test limitations disclosed, open issues identified.
+
+## Latest owner authorization
+Owner explicitly requested a **small 0.7 prototype with a small system of visitable bodies, each with SOI**, following the approved balanced encounter forecast. Treat localized moon gravity as an experiment, not verified physics or a permanent production decision.
+
+## Current design gate — owner-approved revision (2026-11-23)
+Read the latest revision in DECISIONS.md (DV-031 onward), GAME_DESIGN.md, ROADMAP.md and STATUS.md. Gameplay-first **deterministic and forecastable** orbital rules supersede realism as a hard constraint. Keep the one-node prograde/retrograde, commit-or-pass, finite-delta-v loop. Owner reported anomalous motion after an attempted moon capture; do not assume the cause or claim capture verified. Claude physics refinement/testing is the immediate next task; no broader feature implementation authorized. Historical contradictory instructions above are superseded where the latest decisions explicitly say so.
+
+## Latest owner priorities — 0.7.1 (2026-11-23)
+Owner explicitly requested two core refinements: (1) dynamic moon-relative SOI capture with a retrograde burn that can establish a bound orbit when feasible, and continued moon orbit/departure; (2) a compact accessible collapsible Orbit Legend explaining every significant orbital glyph/line/ring/marker and status, using more than colour. Read DV-039–DV-042 and current STATUS.md. Inspect source and test before claiming physics correctness or UI accessibility. Preserve existing single-node manoeuvre loop; no broader features. Do not confuse SOI entry with capture or guarantee capture from retrograde alone.
