@@ -22,3 +22,6 @@ Small central-planet / two-moon playground with approximate localized moon gravi
 **1.0 prototype milestone proposed — complete small loop:** Depart, encounter, optionally capture or fly by, continue, and reach a satisfying run conclusion. These labels are provisional and not authorization to implement new phases.
 
 **Design filter:** Does a change improve observe → plan → commit or pass → travel → encounter → reassess? If not, defer it. Gameplay-first deterministic orbital physics supersedes realism as a constraint. Old roadmap items remain historical context only.
+
+## 0.7.1 refinement scope clarification (2026-11-23)
+Owner prioritizes **dynamic moon-relative SOI capture** and an **accessible collapsible Orbit Legend** alongside physics reliability. Claude should test SOI entry, relative burn direction, genuine bound moon orbit, multiple local revolutions, subsequent manoeuvre and escape, boundary stability, and forecast/execution agreement. Inspect actual canvas glyphs and ensure every important line, ring, marker, trail and status is explained by a matching accessible legend. This is a refinement to the current prototype, not a new gameplay system. Do not begin 0.8 feature expansion until these are trustworthy and playtested.
