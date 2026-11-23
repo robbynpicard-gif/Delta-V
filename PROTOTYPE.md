@@ -32,3 +32,5 @@ The moons now have visible influence rings and localized gravitational pull. Pla
 - While inside a moon's ring, paths are drawn around the moon so a moon orbit looks like an orbit.
 - Committed node: warm colour, double ring, `LOCKED`.
 - Playtest questions: Is "burn inside the ring to capture" discoverable? Is the capture window (≈ −10 to −11 for a 20-unit pass) too narrow? Is the burn-frame switch at the ring edge understandable?
+- **Orbit legend (bottom-left, or press L):** explains every line, ring and marker using the game's own drawings. Summary: solid line = current path; dashes = planned path; dots on the planned path = one per 10 s of flight; solid ring = sphere of influence (thick while you're inside); dotted ring = discovery range; ✓ = discovered moon.
+- **After capture** you can keep orbiting, place a new node by clicking your moon orbit, and burn prograde to leave. Watch for `LEAVES <MOON>` in the forecast.

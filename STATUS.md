@@ -64,4 +64,26 @@ Branch `fix/0.7-patched-conic-physics` → PR #3 into `prototype/orbital-manoeuv
 
 All variants are equally deterministic and forecastable; tuning only widens the window. A non-physical "auto-capture below a threshold" model was not built, because it would make the forecast and execution rules diverge unless shown explicitly (DV-031).
 
-**Open:** genuine sensitivity of multi-revolution encounters (the marker can jump with a 0.2 slider change; live play matches); the mobile node panel covers the play area; no camera or zoom; the burn slider step (0.2) is coarse relative to a ~2.4 capture window.
+**DV-039/040 capture loop, verified by automated tests (2026-11-23):**
+- **Orbiting:** after the −10 moon-relative capture burn, 8.1 revolutions in 150t at 19.6–23.6 units, labelled `INNER MOON ORBIT`.
+- **New node:** a real mouse click on the drawn moon orbit placed a node exactly at the aimed time; the timing slider spans one moon period (≈18).
+- **Departure:** prograde burns of 2–4 forecast `LEAVES INNER MOON`, and the craft leaves.
+- **SOI exit continuity at single-step resolution:** no position or velocity jump; only acceleration changes (0.064 → 0.039 per step).
+- **Energy:** moon-relative drift 1.5×10⁻⁴ while orbiting; planet-frame drift 2×10⁻⁷ while coasting after exit.
+- **Forecast vs live** after departure: ≤0.24 units until the next SOI entry.
+
+**DV-041/042 Orbit Legend, implemented:**
+- Collapsed `<details>` at bottom-left: click, tap, Tab + Enter/Space, or the **L** key. Opening it hides the help text; the body scrolls on small screens.
+- 12 entries plus 2 notes. Every swatch is drawn by the same glyph functions and style table (`ST`) as the game, so a visual change updates both.
+- Symbol fixes from the audit:
+  - discovery ring now dotted (SOI ring stays solid);
+  - active SOI ring drawn thick;
+  - discovered moons show ✓ on the body and in the label;
+  - the encounter marker shows a centre dot when inside the SOI (not colour alone);
+  - the burn vector has an arrowhead;
+  - the craft points along its motion relative to the dominant body;
+  - the old index-sampled forecast dots are replaced by **genuine time ticks every 10 s after the burn** (within 0.17 s, the sample spacing).
+- Verified on desktop and a 390 px phone: Tab order (Pause → Reset → speed → legend), visible focus ring, Enter/Space toggle without pausing, L toggles, Space elsewhere still pauses, tap open/close, swatch canvases `aria-hidden` with text descriptions.
+- Not verified: no screen-reader or colour-vision testing beyond these structural checks; no real-device touch test.
+
+**Open:** label crowding at moons with no camera or zoom; genuine sensitivity of multi-revolution encounters (the marker can jump with a 0.2 slider change; live play matches); the mobile node panel covers the play area; no camera or zoom; the burn slider step (0.2) is coarse relative to a ~2.4 capture window.
