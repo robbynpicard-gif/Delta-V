@@ -25,3 +25,11 @@ Statuses: **Approved**, **Proposed**, **Experimental**, **Implemented**, **Verif
 - **DV-019 — Approved for experimentation:** SOI transitions and gravity assists as later physics milestones, only after basic transfers prove enjoyable.
 - **DV-020 — Experimental:** Two-moon First Neighbourhood prototype; planning beyond delta-v with clear unaffordable indication; no automatic partial burns. Test against simpler affordability-constrained interaction.
 - **DV-021 — Superseded:** Earlier default materials/integrity economy, launch phase, salvage, and debris-centred objectives are not part of the approved core loop. Exact-burn recommendations and automatic encounter slowdown are not default design commitments.
+
+## 0.6 One Orbit, One Decision (2026-11-23)
+- **DV-022 — Approved:** Replace burn-now targeting loop with one future manoeuvre node on the player's upcoming orbit. Timing and signed prograde/retrograde burn are the core player choices.
+- **DV-023 — Approved:** Show the player's own current and projected post-burn trajectories, current celestial bodies and restrained travel-time markers; no automated burn suggestions, moon future positions, closest-pass ghosts or optimal-target solver by default.
+- **DV-024 — Approved:** Planning pauses time. A committed node coasts to the selected execution time and burns automatically; uncommitted nodes expire if passed. The one-orbit limit applies to bound orbits, with a bounded horizon for escapes. No reflex QTE.
+- **DV-025 — Approved:** Delta-v charged only upon execution; one active node; player may cancel before committing. Keep time acceleration for travel.
+- **DV-026 — Superseded:** DV-002's immediate hold-craft burn, 0.3–0.5A.1 automated target assistance, and 0.5A Advance to approach are retired from the active prototype. Historical context remains.
+- **DV-027 — Experimental / Implemented, not Verified:** Prototype 0.6 is a one-node, planet-gravity-only exploration toy. Node placement and drag affordances, one-orbit timing, preview agreement and discoverability require browser playtest. Moon SOIs and gravity assists remain future conditional work.
