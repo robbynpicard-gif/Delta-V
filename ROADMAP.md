@@ -1,11 +1,10 @@
-# DELTA-V — Experimental roadmap
-**Current:** First Neighbourhood prototype 0.4 committed to prototype branch, not browser verified.
+# DELTA-V — Roadmap
+**Current:** 0.6 One Orbit, One Decision prototype on prototype branch; requires browser playtest.
 
-1. **Prove tactile manoeuvre:** slingshot, predicted trajectory, time warp, resource clarity (implemented experimentally).
-2. **Prove exploration loop:** one planetary body, two moving moons, broad discovery encounters, constrained starting variation (0.4 experiment; test now).
-3. **Improve readability and feel only where observed:** camera framing, prediction horizon, time to encounter, affordance for waiting, fast retry, unobtrusive destination feedback.
-4. **Only if 2 succeeds:** SOI transitions and physically consistent moon flybys; evaluate whether gravity assists are satisfying.
-5. **Only if 4 succeeds:** authored/procedurally varied planetary neighbourhoods and connected outward journeys.
-6. **Much later:** stellar scale, long-run economy, interstellar model, galaxy presentation, commercial release planning.
+1. **0.6 — One-node baseline (implemented, not browser-verified):** replace automated targeting with one future manoeuvre node, signed prograde/retrograde burn, projected flight path, automatic committed execution, uncommitted expiry, moving moon discovery.
+2. **0.6 refinement:** fix input and prediction discrepancies, improve timing feedback, observe whether players understand orbital phase. Consider an explicit time scrub only if testing warrants it.
+3. **0.7 conditional:** add simplified coherent moon SOI and moving-body flyby physics if the one-node loop is satisfying.
+4. **Later:** meaningful local exploration progression, coherent procedural neighbourhoods, broader system scale, delta-v economy decisions.
+5. **Far future:** interstellar transition model, full experience, release preparation.
 
-**Validation gate:** Do not scale up until a player can independently reach a moon, understand why a manoeuvre helped, and wants to try another route. Preserve current branch and PR review workflow.
+**Gate:** Do not add complexity until the player can predict a useful orbit and make a deliberate moon encounter without an automated solver.
