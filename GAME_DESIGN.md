@@ -1,39 +1,35 @@
-# DELTA-V — Game Design Bible
+# DELTA-V — Approved concept: A Universe Discovered One Orbit at a Time
+**Status:** Approved direction (2026-11-23). Prototype implementations are experiments, not validated gameplay.
 
-**Status:** APPROVED CONCEPT DIRECTION, not implemented.
-**Version:** Concept v0.2, approved 2026-11-23.
+## Player fantasy
+Be a clever interstellar traveller exploring an unfamiliar, vast universe. Go farther with less. The player should feel responsible for discoveries achieved by understanding gravity and timing, not following prescribed tutorials.
 
-## Pitch
-A minimalist, 2D physics-inspired orbital roguelite: one spacecraft, limited manoeuvre capability, an uncertain universe, and the goal of reaching the greatest distance from the home star. Short, replayable expeditions; meditative most of the time, occasionally tense.
+## Core loop
+**Observe → Plan → Commit → Discover → Repeat.** Begin in a coherent, constrained-random orbital neighbourhood; identify nearby orbital opportunities; hold spacecraft to pause, pull a tactile slingshot to preview a prograde/retrograde manoeuvre, release to spend delta-v; coast with player-controlled time warp; reach a new celestial neighbourhood and discover new opportunities. Reward curiosity, economy, and improved understanding. Avoid arcade reflex pressure.
 
-## Design pillars
-- Tactile orbital manoeuvres are the central skill.
-- Gravity, momentum and SOI transitions behave consistently and intuitively.
-- Constant tradeoffs between range, resources and risk.
-- Uncertainty comes from limited information and encounters, not arbitrary violations of physics.
-- Simplicity above feature count. Do not make a miniature KSP.
-- FTL-like consequential encounters and run variety without copying combat, crew or chase mechanics.
+## Pillars
+1. Simple, expressive input; trustworthy orbital prediction; readable cause and effect.
+2. Exploration is the reward; the environment offers opportunities, not instructions.
+3. Delta-v is the **only base consumable resource** in the core loop; don't add integrity/materials/fuel currencies unless a later prototype proves their necessity.
+4. Procedural generation must yield physically coherent **interesting orbital relationships**, not merely random bodies; ensure viable early options.
+5. Limited local knowledge: nearby bodies charted; distant bodies may be visible but not yet charted; avoid arbitrary fog or scanning chores.
+6. Preserve player agency. No autopilot, exact optimal-burn recipes, or forced encounter slowdown by default.
+7. One compact visual language: current path, planned path, moving-target encounter at matching future time, cost/affordability, and destination. Show consequences rather than an encounter-quality score.
 
-## Main interaction
-Observe spacecraft motion → hold spacecraft to pause → drag to shape a manoeuvre → inspect responsive predicted trajectory and delta-v cost → release to execute. Provide a cancel gesture and optional precision adjustment. Initially support prograde and retrograde; radial control is optional future exploration. The trajectory preview should be trustworthy under the same physics assumptions as execution. Solid near-term paths, dashed uncertain distant extensions, and subtle confidence cues are possible UI conventions.
+## Exploration hierarchy
+- **Immediate prototype:** spacecraft, one planetary primary, two moving moons, orbital transfer and broad encounter regions. No gravity from moons yet.
+- **Next physics milestone if fun:** patched-conic-style SOI/reference-frame transitions, preserving inertial state and predictable preview; meaningful flybys.
+- **Long-term world vision:** local planetary neighbourhoods → star systems → galactic context. Context-sensitive units km/AU/parsecs are labels, not mechanics. Do **not** promise a continuous fully simulated galaxy or simply rescale identical gameplay to parsecs. Interstellar travel model unresolved.
+- Gravity assists are a potential signature mechanic, but must emerge from moving-body physics and be tested after basic transfers prove satisfying.
 
-## Physics
-2D coplanar planetary system, simplified patched-conic two-body orbital motion, instantaneous/impulsive burns initially. Planet/star reference frames change across SOI boundaries without discontinuous jumps in position or velocity. SOI is an approximation and visual/reference-frame transition, not a gravity wall. Gravity bends unpowered trajectories. A moving planet can exchange heliocentric orbital energy through a flyby; an unpowered ideal flyby does not generate propellant delta-v. Unbound approaches require propulsion, atmospheric drag or another dissipative mechanism to capture. Use accurate local physics with approachable presentation, not hidden random trajectory manipulation.
+## Primary and optional objectives
+Primary: reach the vicinity of another celestial body; don't require docking or matching velocities for discovery. Optional later: stable capture, low-relative-speed rendezvous/debris retrieval, efficient routes, gravity assists. Discovery should reveal onward possibilities, not just increment a counter.
 
-## Phases
-1. **Launch:** Brief, largely automatic, with simple engine/Isp/thrust/fuel/mass modifiers determining starting condition and remaining delta-v. No manual launch piloting initially.
-2. **Orbit:** Observe and manoeuvre; limited orbital salvage/repair/upgrades; optionally lower orbit toward a landing or raise it to escape.
-3. **Interplanetary:** Camera zooms out, uneventful travel accelerates, player can perform course corrections, limited events or resource opportunities occur.
-4. **Planetary encounter:** Incoming trajectory and local gravity determine unbound flyby/gravity assist, braking into capture, descent/landing, collision, or escape. These are physical outcomes, NOT option-box selections.
+## Delta-v and planning
+Keep burns finite and consequential. Current experiment allows hypothetical unaffordable burns with an explicit warning and **no surprise partial execution**; compare this against affordability-constrained primary input. No separate single-burn strength limit unless needed for game feel. Delta-v replenishment is **unresolved**; start with a fixed budget and test stranding/soft-lock risks before designing recovery.
 
-## Resource economy
-Keep initially to remaining delta-v (derived from propellant/propulsion), materials, and integrity. Propellant recovery may replenish delta-v subject to tank capacity and mass; gravity assists change trajectory/energy, not fuel. Finite encounter rewards prevent infinite farming. Example future upgrades: efficient engine, fuel capacity, reinforced hull, navigation computer, collector, landing system, thermal protection. All upgrade specifics and balance values remain to be playtested.
+## What NOT to build yet
+Full galaxies, launch simulation, procedural campaign, upgrades, resource salvage, docking, automatic rendezvous, random encounter menus, extensive HUD, forced tutorial lessons. Avoid making a miniature KSP.
 
-## Risk and progression
-Routes and encounters should present meaningful choices; short spatial events may include derelicts, asteroid resources, storms, unknown signals and navigation corrections. Planetary orbit can allow resources and landing, while flybys preserve fuel and change route. Runs end on destruction, stranding, or demonstrably unrecoverable progress, not merely zero fuel (a coasting craft may still fly by a planet). Primary record: maximum distance from home star; secondary records may include encounters, assists, captures, discoveries and efficiency. Procedurally varied physically coherent systems are a later milestone, not prototype scope.
-
-## First prototype — planned, NOT AUTHORIZED
-One star, one planet, one moon, one spacecraft; visible orbit, hold-to-pause, drag prograde/retrograde, cost and predicted path, release to burn, SOI transitions, camera and time acceleration, escape/flyby/capture, reset. Exclude construction, procedural generation, progression, resource events and landing. Prototype must first establish that manipulating an orbit is fun and comprehensible.
-
-## Open design and validation
-Exact control geometry, burn execution UX, manoeuvre preview range, SOI handling near boundaries, camera scales, speed/time-warp rules, navigation uncertainty, failure detection, scoring balance, and engine choice require experimentation. Treat proposed specifics as proposals until validated.
+## First Neighbourhood test
+Can a player (a) understand how the slingshot changes an orbit, (b) reach a moving moon by planning/coasting, (c) feel curiosity about the next body, and (d) voluntarily retry with less delta-v? Observe confusion, idle waiting, repeated failed encounters, and desire to explore. Do not call this loop validated until browser playtesting.
