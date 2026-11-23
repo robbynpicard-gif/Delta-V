@@ -33,3 +33,5 @@ Statuses: **Approved**, **Proposed**, **Experimental**, **Implemented**, **Verif
 - **DV-025 — Approved:** Delta-v charged only upon execution; one active node; player may cancel before committing. Keep time acceleration for travel.
 - **DV-026 — Superseded:** DV-002's immediate hold-craft burn, 0.3–0.5A.1 automated target assistance, and 0.5A Advance to approach are retired from the active prototype. Historical context remains.
 - **DV-027 — Experimental / Implemented, not Verified:** Prototype 0.6 is a one-node, planet-gravity-only exploration toy. Node placement and drag affordances, one-orbit timing, preview agreement and discoverability require browser playtest. Moon SOIs and gravity assists remain future conditional work.
+
+- **DV-028 — Experimental / Implemented, not Verified (2026-11-23):** 0.6.1 revises the 0.6 planning pause assumption. Time continues during node editing unless player voluntarily pauses; 0.25×–8× speed slider manages planning time. No automatic fast-forward after commit. Node expires uncommitted at first passage. The spacecraft is not a direct burn control. This supersedes DV-024's automatic planning pause, pending playtest.
