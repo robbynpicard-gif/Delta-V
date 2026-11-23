@@ -87,3 +87,6 @@ All variants are equally deterministic and forecastable; tuning only widens the 
 - Not verified: no screen-reader or colour-vision testing beyond these structural checks; no real-device touch test.
 
 **Open:** label crowding at moons with no camera or zoom; genuine sensitivity of multi-revolution encounters (the marker can jump with a 0.2 slider change; live play matches); the mobile node panel covers the play area; no camera or zoom; the burn slider step (0.2) is coarse relative to a ~2.4 capture window.
+
+## 0.7.2 Navigation & Clarity — approved, NOT implemented (2026-11-23)
+Owner approved bounded cursor-centred wheel/trackpad zoom, pinch zoom, visible zoom buttons, Focus spacecraft and Reset camera framing, fine burn +/- and keyboard precision, named-body current and proposed moon-relative speeds, minimal contextual encounter observations, and explicit forecast horizon/current and node-time orbital reference. Scope and tests in DV-044–DV-050. Documentation is proposed on branch `docs/navigation-clarity-0.7.2`; no 0.7.2 gameplay code, browser test or deployment has been performed. The 0.7.1 patched-conic/legend candidate remains separately tracked in PR #3 and is not automatically approved or merged by this update.

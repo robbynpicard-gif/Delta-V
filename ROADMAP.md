@@ -25,3 +25,9 @@ Small central-planet / two-moon playground with approximate localized moon gravi
 
 ## 0.7.1 refinement scope clarification (2026-11-23)
 Owner prioritizes **dynamic moon-relative SOI capture** and an **accessible collapsible Orbit Legend** alongside physics reliability. Claude should test SOI entry, relative burn direction, genuine bound moon orbit, multiple local revolutions, subsequent manoeuvre and escape, boundary stability, and forecast/execution agreement. Inspect actual canvas glyphs and ensure every important line, ring, marker, trail and status is explained by a matching accessible legend. This is a refinement to the current prototype, not a new gameplay system. Do not begin 0.8 feature expansion until these are trustworthy and playtested.
+
+## 0.7.2 Navigation & Clarity — approved scope, implementation pending (2026-11-23)
+**Dependency:** Reconcile 0.7.1 dominant-body capture/legend candidate on PR #3 and obtain owner playtest feedback; do not overwrite Claude's physics branch or treat automated verification as owner acceptance.
+**Pass A — camera and precision:** cursor/pinch-centred bounded zoom, visible +/- controls, Focus spacecraft, Reset camera framing, fine burn +/- and keyboard steps. Validate world-to-screen transforms, hit testing and touch gestures.
+**Pass B — information and context:** current and at-node pre/post burn relative speeds with named body reference, explicit forecast horizon and current/future reference, minimal event-driven observations. Avoid solver hints or mission markers.
+**Gate:** user can zoom to plan a moon capture, adjust burn accurately, understand the frame and outcome horizon, and choose a manoeuvre without stumbling over missing interface information. Physics and finite delta-v unchanged; test desktop/mobile/keyboard and preserve the accessible Orbit Legend. No 0.8 feature expansion bundled into 0.7.2.

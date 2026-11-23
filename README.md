@@ -16,3 +16,6 @@ The prototype branch now contains a small central planet and two visitable moons
 
 ## Current approved gameplay direction (2026-11-23)
 Gameplay-first, deterministic orbital exploration: observe → plan → commit or pass → travel → encounter → reassess. The existing 0.7 SOI physics is experimental after a reported capture anomaly. The immediate priority is Claude-led physics/forecast refinement, not feature expansion. See latest sections of DECISIONS.md, GAME_DESIGN.md, ROADMAP.md and STATUS.md for current decisions; earlier summaries are historical when conflicting.
+
+## Approved next refinement — 0.7.2 (2026-11-23)
+Navigation & Clarity is approved **for implementation but not yet implemented**: bounded zoom and framing, fine burn controls, body-relative speed information, unobtrusive contextual observations and explicit forecast horizon/reference. See DV-044–DV-050 and the latest ROADMAP.md. Coordinate with the unmerged 0.7.1 patched-conic/Orbit Legend candidate (PR #3) before modifying gameplay; do not assume the deployed preview contains 0.7.2.
