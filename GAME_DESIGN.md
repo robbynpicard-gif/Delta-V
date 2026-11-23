@@ -33,3 +33,16 @@ Can a new player place a node, understand when it fires, predict the shape of th
 
 ## 0.7 experimental scope — Encounter playground
 Owner requested a small, simple system of visitable bodies with their own SOIs. Prototype uses one central planet and two orbiting moons with smooth localized gravitational influence, allowing flyby deflections in principle. Balanced encounter forecast displays closest approach, time, and location for the player's proposed burn, not an optimized manoeuvre. The simplified SOI is an approximation and capture/assist are not yet verified. Preserve one-pass commitment pressure and finite delta-v. Do not broaden the system until playtested.
+
+## Approved design revision — gameplay-first orbital decisions (2026-11-23)
+**Current guiding principle:** DELTA-V is an orbital exploration game about consequential, learnable manoeuvre decisions, not a gravity simulator. Predictability and consistency outrank gravitational realism. Retain simple prograde/retrograde burns, one upcoming node, a commitment deadline, finite delta-v and no automated solver.
+
+**Revised loop:** Observe → Plan → **Commit or Pass** → Travel → Encounter → Reassess. Passing an opportunity preserves fuel but forgoes that node. Every encounter should meaningfully alter future navigation possibilities rather than simply grant a reward.
+
+**Encounter vocabulary:** Flyby (continue on changed path), capture (establish a bound local orbit), escape (trade stability for reach). All should follow consistent gameplay physics and the same manoeuvre inputs. Discovery requires reaching vicinity, **not** capture. Accurate forecast labels should only appear when verified by the actual model; explicitly distinguish finite prediction horizon from permanent stability.
+
+**Level-design principle:** Small, initially handcrafted orbital neighbourhoods with distinct navigational geography and opportunity chains. Simple early transfers should work without advanced gravity-assist mastery. A body is interesting because of routes it enables, not arbitrary bonuses.
+
+**Physics direction:** Exact gravity implementation remains **Experimental**. Compare deterministic simplified dominant-body SOI and gameplay-tuned orbital models; do not preserve the existing blended-gravity approximation merely for realism. Reproduce and resolve the reported post-capture orbital anomaly, test prediction/execution agreement and classify capture correctly before expanding scope.
+
+**Deferred/retired from near-term work:** launch minigame, materials, integrity, debris/salvage economy, upgrades, landing systems, large procedural universe and interstellar transition mechanics. These are not active dependencies of the simple loop. Earlier sections of this document describe historical prototype assumptions where they conflict with this revision.
