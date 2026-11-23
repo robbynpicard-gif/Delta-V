@@ -23,3 +23,14 @@ Click the orbital line, **not the ship**, to place a node. Planning **does not p
 
 ## 0.7 — Encounter playground
 The moons now have visible influence rings and localized gravitational pull. Place one node on your spacecraft orbit, choose prograde/retrograde, and view the proposed post-burn path and a predicted closest approach (body, separation, time). Committing locks the burn; an uncommitted node expires when passed. The active influence region is shown in the HUD. SOI uses a smooth, deliberately simplified gravity approximation; this is not a validated full celestial mechanics model. Browser and numerical verification remain outstanding.
+
+## 0.7.1 — Patched-conic correction (branch `fix/0.7-patched-conic-physics`, pending owner review)
+- **Gravity:** inside a moon's ring only that moon pulls, measured relative to the moon; outside, only the planet. Rings are physically sized SOIs (inner ≈ 40, outer ≈ 61).
+- **Capture:** coasting in never captures you; you must **burn inside the ring**. The forecast says `CAPTURE · <MOON> ORBIT · PERIAPSIS n · HOLDS THROUGH T+h` only when the propagated forecast stays bound for its whole horizon; otherwise `LEAVES <MOON> T+n` or `IMPACT`. Dominance is sticky: an orbit around one moon is not disturbed when the other moon's ring passes over it.
+- **Burn direction** is relative to whichever body you are orbiting at the node ("RELATIVE TO INNER MOON" in the node panel).
+- **Moons are solid:** hitting one ends the run.
+- While inside a moon's ring, paths are drawn around the moon so a moon orbit looks like an orbit.
+- Committed node: warm colour, double ring, `LOCKED`.
+- Playtest questions: Is "burn inside the ring to capture" discoverable? Is the capture window (≈ −10 to −11 for a 20-unit pass) too narrow? Is the burn-frame switch at the ring edge understandable?
+- **Orbit legend (bottom-left, or press L):** explains every line, ring and marker using the game's own drawings. Summary: solid line = current path; dashes = planned path; dots on the planned path = one per 10 s of flight; solid ring = sphere of influence (thick while you're inside); dotted ring = discovery range; ✓ = discovered moon.
+- **After capture** you can keep orbiting, place a new node by clicking your moon orbit, and burn prograde to leave. Watch for `LEAVES <MOON>` in the forecast.
