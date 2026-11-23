@@ -39,3 +39,14 @@ No launch, upgrades, SOI transitions, interplanetary travel, procedural systems 
 - Six pieces of debris follow independent circular gravitational orbits around the planet. Contact within 11 world units collects one, plays a restrained tone (if enabled), and adds a small particle flourish and counter.
 - No resources, upgrades or meta progression. Reset restores the six pieces.
 - **Needs hands-on testing:** verify burn direction, trajectory preview agreement, debris interception, feel of speed and pull sensitivity, mobile grabbing and high-frame-rate stability.
+
+## Prototype 0.3 — gentle rendezvous guidance
+**Implemented on prototype branch, awaiting browser playtest.** Player approved gentle guidance (not autopilot).
+
+- Time warp slider: 0.5×, 1×, 2×, 4×, 8×, 16×, default 4×. Hold-to-plan still pauses. Integrator retains fixed timestep; simulation has a per-frame step cap to prevent runaway work.
+- Select an orbiting debris object by clicking/tapping it. Target highlights.
+- Predicted rendezvous evaluates **both moving objects over the same future timeline**, sampling candidate signed tangential burns and reporting a promising pull direction/magnitude, closest pass distance, relative speed, and time to approach.
+- During slingshot drag, target information evaluates the **player's proposed burn**, while the suggested burn remains advisory.
+- Collection now requires passing within 11 simulation units at relative speed under 9 units/s. Misses and high-speed flybys do not collect.
+- Guidance uses a coarse burn search, 100 simulation-second prediction horizon, and is **approximate**. It does not guarantee collection and does not perform automatic burns.
+- Test particularly on slow mobile devices at 16×, on target selection during a fast coast, and on debris encounter accuracy. UI values are illustrative game units, not real SI distances.
