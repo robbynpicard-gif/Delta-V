@@ -17,3 +17,6 @@ Only planet gravity; moons orbit but do not exert gravity. Encounter = enter bro
 
 ## Playtest
 Is the node discoverable? Is dragging clear? Does execution match the preview? Does the lack of target predictions create satisfying orbital intuition or frustrating blind guessing? Is faster coast adequate? Does a moon discovery feel earned?
+
+## 0.6.1 playtest correction
+Click the orbital line, **not the ship**, to place a node. Planning **does not pause time**. Use the top-right speed slider (0.25×–8×) or Pause to manage decision time. Drag the node along the orbit to alter its scheduled time; use the prograde/retrograde slider to set burn. Commit before the craft passes the node. Committed burns execute at passage without automatic fast-forward. Uncommitted plans disappear at passage. The dashed cyan curve is the proposed **ship** trajectory, not live targeting. No ship slingshot exists in branch source. Not browser-verified.
