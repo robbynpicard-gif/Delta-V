@@ -17,3 +17,6 @@ Discuss art and sound design details; maintain documentation and decisions. Ask 
 
 ## Collaboration notes
 GitHub files are the shared source of truth. Claude and ChatGPT must read AGENTS.md and current docs before editing; conversations are not automatically synchronized.
+
+## Prototype 0.1 branch update (2026-11-23)
+Owner explicitly authorized a small playable manoeuvre experiment. `prototype/orbital-manoeuvres-v0.1` contains `index.html` and `PROTOTYPE.md`. **Implemented but not browser-verified.** This limited authorization does not approve full expedition implementation or merging into main. See PROTOTYPE.md for scope, controls and limitations.
