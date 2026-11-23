@@ -8,3 +8,6 @@
 5. **Far future:** interstellar transition model, full experience, release preparation.
 
 **Gate:** Do not add complexity until the player can predict a useful orbit and make a deliberate moon encounter without an automated solver.
+
+## 0.7 active experiment
+Small central-planet / two-moon playground with approximate localized moon gravity, SOI visualization and time-synchronized balanced encounter forecast is committed to prototype branch. Next gate: browser playtest, numerical prediction/execution comparison and performance. Then refine tactile placement and distinct commit/execution feedback; only then evaluate genuine capture/assist readability. No larger system or progression until validated.
