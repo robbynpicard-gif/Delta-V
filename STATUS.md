@@ -22,3 +22,6 @@ Owner playtests 0.4, reports first-transfer experience. Fix blockers and refine 
 
 ## Prototype 0.5A — Manoeuvre Planner (2026-11-23)
 **Implemented, not browser-verified:** select moon, live future closest-approach preview while dragging, and Advance to approach button. Advance is only offered if a near pass is predicted within a 1200-s simulation horizon; it fast-forwards the same physics and stops 12 simulation seconds before predicted closest approach. It does not change trajectory or guarantee capture. No future-burn-point planning (0.5B), moon gravity, or SOI switching yet. Playtest whether the encounter prediction, stopping distance, performance and advance availability feel useful. No live browser test performed.
+
+## 0.5A.1 — Planner indicator stabilization
+**Implemented, not browser-verified:** On target selection / manoeuvre start, choose a single reference encounter time. While dragging, compare ship and target at that fixed timestamp rather than reselecting the global minimum each pointer move. Label the result as fixed-time separation, not closest pass. This fixes the moving-goalpost design flaw but does not guarantee an intercept or validate prediction precision. Advance-to-approach remains a separate nearest-pass calculation. Await player retest.
