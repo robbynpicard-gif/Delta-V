@@ -30,3 +30,6 @@ Can a new player place a node, understand when it fires, predict the shape of th
 
 ## 0.6.1 timing experiment — supersedes automatic planning pause
 **Experimental:** Planning does not automatically pause time; the player can voluntarily pause or slow time with a 0.25×–8× speed slider. An uncommitted node is a one-pass opportunity and expires on arrival. Commit does not force time acceleration. This intentionally tests whether the distance/time to the node creates meaningful stakes without reflex pressure. Previous default auto-pause and auto-fast-forward are superseded. The player can still pause manually; whether that dilutes the intended tension is an open playtest question.
+
+## 0.7 experimental scope — Encounter playground
+Owner requested a small, simple system of visitable bodies with their own SOIs. Prototype uses one central planet and two orbiting moons with smooth localized gravitational influence, allowing flyby deflections in principle. Balanced encounter forecast displays closest approach, time, and location for the player's proposed burn, not an optimized manoeuvre. The simplified SOI is an approximation and capture/assist are not yet verified. Preserve one-pass commitment pressure and finite delta-v. Do not broaden the system until playtested.
