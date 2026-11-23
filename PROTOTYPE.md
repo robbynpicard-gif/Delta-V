@@ -20,3 +20,6 @@ Is the node discoverable? Is dragging clear? Does execution match the preview? D
 
 ## 0.6.1 playtest correction
 Click the orbital line, **not the ship**, to place a node. Planning **does not pause time**. Use the top-right speed slider (0.25×–8×) or Pause to manage decision time. Drag the node along the orbit to alter its scheduled time; use the prograde/retrograde slider to set burn. Commit before the craft passes the node. Committed burns execute at passage without automatic fast-forward. Uncommitted plans disappear at passage. The dashed cyan curve is the proposed **ship** trajectory, not live targeting. No ship slingshot exists in branch source. Not browser-verified.
+
+## 0.7 — Encounter playground
+The moons now have visible influence rings and localized gravitational pull. Place one node on your spacecraft orbit, choose prograde/retrograde, and view the proposed post-burn path and a predicted closest approach (body, separation, time). Committing locks the burn; an uncommitted node expires when passed. The active influence region is shown in the HUD. SOI uses a smooth, deliberately simplified gravity approximation; this is not a validated full celestial mechanics model. Browser and numerical verification remain outstanding.
