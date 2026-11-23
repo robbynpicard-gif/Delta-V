@@ -87,3 +87,8 @@ All variants are equally deterministic and forecastable; tuning only widens the 
 - Not verified: no screen-reader or colour-vision testing beyond these structural checks; no real-device touch test.
 
 **Open:** label crowding at moons with no camera or zoom; genuine sensitivity of multi-revolution encounters (the marker can jump with a 0.2 slider change; live play matches); the mobile node panel covers the play area; no camera or zoom; the burn slider step (0.2) is coarse relative to a ~2.4 capture window.
+
+## 0.7.2 Navigation & Clarity — implemented candidate on feature branch (2026-11-23)
+**Branch:** `feature/navigation-clarity-0.7.2`, based on 0.7.1 `fix/0.7-patched-conic-physics`. **Implementation status: Implemented candidate, not browser-playtested or Verified.** Source now includes bounded cursor-wheel zoom, pinch midpoint zoom, visible +/- buttons, Focus craft and Reset view, fine 0.05 delta-v burn slider and +/- buttons with keyboard arrows, current relative speed, at-node pre/post burn relative speed and named orbital reference, explicit forecast horizon in the node panel, and short SOI entry/exit, capture and discovery observations. Camera transforms are presentation-only. The existing Orbit Legend remains. No new manoeuvre type or gameplay economy was added.
+
+**Outstanding validation:** actual browser JS execution, mobile multi-touch gesture interaction, camera coordinate precision, zoomed node drag, accessibility, numerical readout accuracy, capture tests and regression tests have NOT been run in this session. Do not claim these passed. Owner review required. Source branch must be reconciled with documentation PR #4 and 0.7.1 physics PR #3 before merge. No deployment was performed.
