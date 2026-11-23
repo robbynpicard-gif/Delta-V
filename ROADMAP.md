@@ -1,23 +1,11 @@
-# DELTA-V — Lightweight roadmap
+# DELTA-V — Experimental roadmap
+**Current:** First Neighbourhood prototype 0.4 committed to prototype branch, not browser verified.
 
-## 0. Preproduction — CURRENT
-- [x] Establish core game concept and physics-first manoeuvre direction.
-- [x] Choose atmospheric minimalist vector art direction.
-- [x] Choose peaceful/meditative, occasionally tense sound identity.
-- [x] Create shared context documentation.
-- [ ] Discuss concrete art, animation, manoeuvre UI, sound palette and feedback.
-- [ ] Explicit owner approval to begin a playable prototype.
+1. **Prove tactile manoeuvre:** slingshot, predicted trajectory, time warp, resource clarity (implemented experimentally).
+2. **Prove exploration loop:** one planetary body, two moving moons, broad discovery encounters, constrained starting variation (0.4 experiment; test now).
+3. **Improve readability and feel only where observed:** camera framing, prediction horizon, time to encounter, affordance for waiting, fast retry, unobtrusive destination feedback.
+4. **Only if 2 succeeds:** SOI transitions and physically consistent moon flybys; evaluate whether gravity assists are satisfying.
+5. **Only if 4 succeeds:** authored/procedurally varied planetary neighbourhoods and connected outward journeys.
+6. **Much later:** stellar scale, long-run economy, interstellar model, galaxy presentation, commercial release planning.
 
-## 1. Orbital toy — NOT AUTHORIZED
-One star, planet, moon, craft, orbit visualization, hold/drag/release burns, trustworthy preview, SOI transitions, time controls, camera and reset. Browser-testable. Test whether the interaction feels intuitive and enjoyable.
-
-## 2. First expedition loop — FUTURE
-Launch modifiers, interplanetary transitions, physical capture/flyby choices, limited resource encounters, basic loss and distance record.
-
-## 3. Replayable game — FUTURE
-Coherent run variation, restrained upgrades, landing opportunities, balancing and accessibility.
-
-## 4. Release preparation — FUTURE
-Polish, saves/settings, performance, original art/audio, distribution decisions, eventual Steam planning. No release commitments or dates yet.
-
-Keep each milestone small. Do not expand scope without approval.
+**Validation gate:** Do not scale up until a player can independently reach a moon, understand why a manoeuvre helped, and wants to try another route. Preserve current branch and PR review workflow.
