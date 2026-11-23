@@ -27,3 +27,6 @@ Simple controls, meditative coasting, consequential choices, forgiving retry. Av
 
 ## Validation
 Can a new player place a node, understand when it fires, predict the shape of the resulting orbit, commit, and feel agency when discovering a moon? Does the lack of future moon markers create satisfying discovery or opaque guesswork? Is the one-orbit deadline motivating or annoying? Browser playtest before adding SOIs or other systems.
+
+## 0.6.1 timing experiment — supersedes automatic planning pause
+**Experimental:** Planning does not automatically pause time; the player can voluntarily pause or slow time with a 0.25×–8× speed slider. An uncommitted node is a one-pass opportunity and expires on arrival. Commit does not force time acceleration. This intentionally tests whether the distance/time to the node creates meaningful stakes without reflex pressure. Previous default auto-pause and auto-fast-forward are superseded. The player can still pause manually; whether that dilutes the intended tension is an open playtest question.
