@@ -14,3 +14,14 @@ Statuses: **Approved**, **Proposed**, **Experimental**, **Implemented**, **Verif
 - **DV-010 — Proposed:** Responsive generative tones tied to orbital events, with careful restraint.
 - **DV-011 — Proposed:** First orbital toy scope as specified in GAME_DESIGN.md; implement only after authorization.
 - **DV-012 — Proposed:** Procedurally varied coherent star systems, short runs and long-term upgrades; exact scope and pacing to validate.
+
+## Exploration-first revision (2026-11-23)
+- **DV-013 — Approved:** The game is an orbital exploration puzzle roguelite (puzzle mastery first, exploration discovery second), not a reflex-driven arcade game. Observe → Plan → Commit → Discover → Repeat.
+- **DV-014 — Approved:** Start from a constrained-procedural celestial neighbourhood; physically coherent orbital relationships and accessible opportunities take priority over unrestricted randomness.
+- **DV-015 — Approved:** Nearby charted objects and progressive discovery, without arbitrary fog-of-war, scanning chores, or instructional objectives.
+- **DV-016 — Approved:** Delta-v is the sole base consumable resource for the core loop. Other resources/upgrades from older concepts are superseded for now; replenishment remains undecided.
+- **DV-017 — Approved:** Reaching a celestial body's vicinity is a valid primary exploration objective; low-speed rendezvous/debris collection is optional, not mandatory.
+- **DV-018 — Approved:** Nested planetary/stellar/galactic universe is a long-term vision, not a commitment to full continuous simulation. km/AU/parsecs are contextual display units. Interstellar mechanics unresolved.
+- **DV-019 — Approved for experimentation:** SOI transitions and gravity assists as later physics milestones, only after basic transfers prove enjoyable.
+- **DV-020 — Experimental:** Two-moon First Neighbourhood prototype; planning beyond delta-v with clear unaffordable indication; no automatic partial burns. Test against simpler affordability-constrained interaction.
+- **DV-021 — Superseded:** Earlier default materials/integrity economy, launch phase, salvage, and debris-centred objectives are not part of the approved core loop. Exact-burn recommendations and automatic encounter slowdown are not default design commitments.
